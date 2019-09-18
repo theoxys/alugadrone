@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1042505394121",
+    "firebase_url": "https://alugadrone-4b356.firebaseio.com",
+    "project_id": "alugadrone-4b356",
+    "storage_bucket": "alugadrone-4b356.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1042505394121:android:520d7f6e490994bd7eea18",
+        "android_client_info": {
+          "package_name": "br.com.alugadrone.alugadrone_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1042505394121-002er3v66lda9lqukmo1q1mb4c5j818q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.alugadrone.alugadrone_app",
+            "certificate_hash": "bcbc009ad048048f76238a72036c5445218b0c2a"
+          }
+        },
+        {
+          "client_id": "1042505394121-10gvn04uhq1ep6v6j2jo7d792bgir71m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9NeOgBrCaOILQPM9FdKK5XwEx5JiB4Lc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1042505394121-10gvn04uhq1ep6v6j2jo7d792bgir71m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
