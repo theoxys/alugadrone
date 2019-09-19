@@ -7,6 +7,7 @@ import 'package:scoped_model/scoped_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'models/user_model.dart';
+import 'tabs/home_tab.dart';
 
 void main(){
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.red,
           ),
           debugShowCheckedModeBanner: false,
-          home: CadastroScreen(),
+          home: HomeTab(),
         )
       );
   }
