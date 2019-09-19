@@ -33,6 +33,7 @@ dependencies:
   cpf_cnpj_validator: ^1.0.5
   firebase_core: ^0.4.0+1
   flutter_spinkit: "^2.1.0"
+  curved_navigation_bar: ^0.1.2
 
 dev_dependencies:
   flutter_test:
