@@ -1,3 +1,6 @@
+import 'package:alugadrone_app/screens/login_screen.dart';
+import 'package:alugadrone_app/screens/pedidos_screen.dart';
+import 'package:alugadrone_app/screens/perfil_screen.dart';
 import 'package:alugadrone_app/tiles/drawer_tile.dart';
 import 'package:flutter/material.dart';
 
@@ -33,30 +36,32 @@ class CustomDrawer extends StatelessWidget {
                 Container(
                   margin: EdgeInsets.only(bottom: 8.0),
                   padding: EdgeInsets.fromLTRB(0.0, 16.0, 16.0, 8.0),
-                  height: 170.0,
+                  height: 230.0,
                   child: Stack(
                     children: <Widget>[
                       Positioned(
                         top: 8.0,
                         left: 0.0,
-                        child: Text("Aluga Drone",
-                          style: TextStyle(fontSize: 34.0, fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                      Positioned(
-                        left: 0.0,
-                        bottom: 0.0,
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[
-                            Text("Olá",
+                            Text("Aluga Drone",
+                              style: TextStyle(fontSize: 34.0, fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(height: 15.0,),
+                            CircleAvatar(
+                              backgroundImage: NetworkImage('https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png'),
+                              radius: 40.0,
+                            ),
+                            SizedBox(height: 15.0,),
+                            Text("Você não esta logado!",
                               style: TextStyle(
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold
                               ),
                             ),
                             GestureDetector(
-                                child: Text("Cadastre-se",
+                                child: Text("Entre ou Cadastre-se!",
                                   style: TextStyle(
                                       color: Theme.of(context).primaryColor,
                                       fontSize: 16.0,
@@ -64,7 +69,9 @@ class CustomDrawer extends StatelessWidget {
                                   ),
                                 ),
                                 onTap: (){
-
+                                  Navigator.of(context).push(
+                                      MaterialPageRoute(builder: (context)=>LoginScreen())
+                                  );
                                 }
                             )
                           ],
@@ -74,10 +81,42 @@ class CustomDrawer extends StatelessWidget {
                   ),
                 ),
                 Divider(),
-                DrawerTile(Icons.home, "Feed", pageController,0),
-                DrawerTile(Icons.list, "Buscar drones", pageController,1),
-                DrawerTile(Icons.playlist_add_check, "Meus pedidos", pageController,2),
-                DrawerTile(Icons.build, "Configurações", pageController,3),
+                FlatButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context)=>PerfilScreen())
+                      );
+                    },
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.person_pin),
+                        Text("Ver Perfil")
+                      ],
+                    )),
+                FlatButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context)=>PedidosScreen())
+                      );
+                    },
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.playlist_add_check),
+                        Text("Meus pedidos")
+                      ],
+                    )),
+                FlatButton(
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (context)=>LoginScreen())
+                      );
+                    },
+                    child: Row(
+                      children: <Widget>[
+                        Icon(Icons.subdirectory_arrow_left),
+                        Text("Logout")
+                      ],
+                    )),
 
               ],
             )
