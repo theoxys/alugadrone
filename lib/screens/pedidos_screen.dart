@@ -9,7 +9,7 @@ class PedidosScreen extends StatelessWidget {
         child: Center(
           child: Text("Tela de pedidos",style: TextStyle(color: Colors.white),),
         ),
-      );,
-    )
+      ),
+    );
   }
 }

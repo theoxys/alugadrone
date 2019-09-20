@@ -9,7 +9,7 @@ class PerfilScreen extends StatelessWidget {
         child: Center(
           child: Text("Tela de Perfil",style: TextStyle(color: Colors.white),),
         ),
-      );,
-    )
+      ),
+    );
   }
 }
