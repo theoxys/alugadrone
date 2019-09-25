@@ -117,7 +117,7 @@ class HomeScreen extends StatelessWidget {
       bottomNavigationBar: FancyBottomNavigation(
     tabs: [
     TabData(iconData: Icons.photo_library, title: "Feed"),
-    TabData(iconData: Icons.search, title: "Drones"),
+    TabData(iconData: Icons.flight, title: "Drones Services"),
     TabData(iconData: Icons.shopping_cart, title: "Serviços")
     ],
     onTabChangedListener: (index) {
