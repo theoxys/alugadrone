@@ -1,10 +1,21 @@
 import 'package:alugadrone_app/models/user_model.dart';
 import 'package:alugadrone_app/screens/cadastro_screen.dart';
+import 'package:alugadrone_app/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class LoginScreen extends StatelessWidget {
+
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+
+  final _emailController = TextEditingController();
+  final _passController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
 
@@ -23,18 +34,18 @@ class LoginScreen extends StatelessWidget {
     );
 
     return Scaffold(
-      body:
-      Stack(
-        children: <Widget>[
-          _buildBodyBack(),
-          ScopedModelDescendant<UserModel>(
+        body:
+        Stack(
+          children: <Widget>[
+            _buildBodyBack(),
+            ScopedModelDescendant<UserModel>(
               builder: (context, child, model){
                 if(model.isLoading)
                   return Center(
-                    child: SpinKitWave(
-                      color: Colors.red,
-                      size: 60.0,
-                    )
+                      child: SpinKitWave(
+                        color: Colors.red,
+                        size: 60.0,
+                      )
                   );
 
                 return Form(child: ListView(
@@ -49,14 +60,16 @@ class LoginScreen extends StatelessWidget {
                     ),
                     SizedBox(height: 50.0,),
                     TextFormField(
+                      controller: _emailController,
                       decoration: InputDecoration(
                           icon: Icon(Icons.person),
-                          hintText: "Usuário"
+                          hintText: "Email"
                       ),
                       keyboardType: TextInputType.emailAddress,
                     ),
                     SizedBox(height: 20.0,),
                     TextFormField(
+                      controller: _passController,
                       decoration: InputDecoration(
                           icon: Icon(Icons.lock),
                           hintText: "Senha"
@@ -74,7 +87,7 @@ class LoginScreen extends StatelessWidget {
                           color: Theme.of(context).primaryColor,
                           textColor: Colors.white,
                           onPressed: (){
-                            model.signIn();
+                            model.signIn(email: _emailController.text, pass: _passController.text, onSuccess: _onSuccess, onFail: _onFail);
                           },
                           padding: EdgeInsets.symmetric(horizontal: 118.0),
                           child: Text("Entrar!")
@@ -90,9 +103,15 @@ class LoginScreen extends StatelessWidget {
                 )
                 );
               },
-          )
-        ],
-      )
+            )
+          ],
+        )
     );
+  }
+  void _onSuccess(){
+    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>HomeScreen()));
+  }
+  void _onFail(){
+
   }
 }

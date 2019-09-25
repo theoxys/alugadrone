@@ -11,7 +11,7 @@ import 'tabs/home_tab.dart';
 
 void main(){
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent
+    statusBarColor: Colors.transparent,
   ));
   Firestore.instance.collection("NewTest").document("teste").setData({"Teste":"Teste"});
   runApp(MyApp());
