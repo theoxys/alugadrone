@@ -15,6 +15,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
+  final _recoverMailController = TextEditingController();
+  final GlobalKey<ScaffoldState>_scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
 
     return Scaffold(
+        key: _scaffoldKey,
         body:
         Stack(
           children: <Widget>[
@@ -76,7 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       obscureText: true,
                     ),
-                    FlatButton(onPressed: null, child: Text("Esqueci minha senha!",)),
+                    FlatButton(onPressed: _recoverPassButton, child: Text("Esqueci minha senha!",)),
                     SizedBox(height: 50.0,),
                     SizedBox(
                       height: 50.0,
@@ -113,5 +116,51 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   void _onFail(){
 
+  }
+  void _recoverPassButton(){
+    showDialog(context: context, builder: (context){
+      return AlertDialog(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+          title: Text("Esqueceu sua senha?", textAlign: TextAlign.center,),
+          content: ScopedModelDescendant<UserModel>(
+              builder: (context, child, model){
+                return Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Text("Insira seu email para recuerar a senha!"),
+                      SizedBox(height: 20.0,),
+                      TextFormField(
+                        controller: _recoverMailController,
+                        decoration: InputDecoration(hintText: "e-mail"),
+                      ),
+                      SizedBox(height: 20.0,),
+                      RaisedButton(onPressed: (){
+                        if(_recoverMailController.text.isEmpty){
+                          _scaffoldKey.currentState.showSnackBar(SnackBar(
+                            content: Text("Insira um email para recuperar a senha!"),
+                            backgroundColor: Colors.red,
+                            duration: Duration(seconds: 1),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(30.0))),
+                          )
+                          );
+                        }else{
+                          model.recoverPassword(email: _recoverMailController.text);
+                          _scaffoldKey.currentState.showSnackBar(SnackBar(
+                            content: Text("Verefique seu email para recuperar a senha!"),
+                            backgroundColor: Colors.green,
+                            duration: Duration(seconds: 2),
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.vertical(top: Radius.circular(30.0))),
+                          )
+                          );
+                          Navigator.pop(context);
+                        }
+                      }, child: Text("Recuperar senha!", style: TextStyle(color: Colors.white)), color: Colors.red ,shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25.0),))
+                    ]
+                );
+              }
+          )
+      );
+
+    });
   }
 }

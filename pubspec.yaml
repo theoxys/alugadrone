@@ -37,6 +37,7 @@ dependencies:
   fancy_bottom_navigation: ^0.3.2
   image_picker:
   day_selector: ^1.0.0
+  brasil_fields: ^0.0.7+2
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +57,7 @@ flutter:
   assets:
     - img/menuIcon.png
     - img/logoBranco.png
+    - img/droneSuccess.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
