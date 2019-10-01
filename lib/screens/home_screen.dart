@@ -93,7 +93,7 @@ class HomeScreen extends StatelessWidget {
                 backgroundColor: Colors.white,
                 brightness: Brightness.light,
                 leading: FlatButton(child: Image.asset('img/menuIcon.png', color: Colors.red,), onPressed:()=> scaffoldKey.currentState.openDrawer()),
-                title: Text("Buscar Serviços", style: TextStyle(color: Colors.red),),
+                title: Text("Buscar Drones", style: TextStyle(color: Colors.red),),
                 centerTitle: true,
               ),
               body: SearchScreen(),
@@ -119,7 +119,7 @@ class HomeScreen extends StatelessWidget {
     tabs: [
     TabData(iconData: Icons.photo_library, title: "Feed"),
     TabData(iconData: Icons.flight, title: "Drones Services"),
-    TabData(iconData: Icons.shopping_cart, title: "Serviços")
+    TabData(iconData: Icons.shopping_cart, title: "Drones")
     ],
     onTabChangedListener: (index) {
       pageController.jumpToPage(index);
