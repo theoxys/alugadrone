@@ -13,6 +13,7 @@ class SearchTab extends StatelessWidget {
       return DefaultTabController(
         length :1,
         child: Scaffold(
+          backgroundColor: Colors.grey[200],
                 //Tab(icon: Icon(Icons.grid_on, color: Colors.red),),
                 //Tab(icon: Icon(Icons.list, color: Colors.red),)
 

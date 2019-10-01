@@ -61,7 +61,7 @@ class HomeScreen extends StatelessWidget {
                 ),
             ),
             Scaffold(
-              backgroundColor: Colors.grey[200],
+              backgroundColor: Colors.grey[700],
               appBar: AppBar(
               backgroundColor: Colors.white,
                 brightness: Brightness.light,
