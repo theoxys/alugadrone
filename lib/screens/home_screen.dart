@@ -2,6 +2,7 @@ import 'package:alugadrone_app/models/user_model.dart';
 import 'package:alugadrone_app/screens/publicar_drone_screen.dart';
 import 'package:alugadrone_app/tabs/home_tab.dart';
 import 'package:alugadrone_app/screens/search_screen.dart';
+import 'package:alugadrone_app/tabs/search_tab.dart';
 import 'package:alugadrone_app/widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
@@ -60,15 +61,15 @@ class HomeScreen extends StatelessWidget {
                 ),
             ),
             Scaffold(
-              backgroundColor: Colors.grey[200],
+              backgroundColor: Colors.grey[700],
               appBar: AppBar(
-                backgroundColor: Colors.white,
+              backgroundColor: Colors.white,
                 brightness: Brightness.light,
                 leading: FlatButton(child: Image.asset('img/menuIcon.png', color: Colors.red,), onPressed:()=> scaffoldKey.currentState.openDrawer()),
                 title: Text("Buscar serviço", style: TextStyle(color: Colors.red),),
                 centerTitle: true,
               ),
-              body: SearchScreen(),
+              body: SearchTab(),
               floatingActionButton: ScopedModelDescendant<UserModel>(
                   builder: (context, child, model){
                     return Visibility(child: FloatingActionButton.extended(
